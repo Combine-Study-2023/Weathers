@@ -89,9 +89,17 @@ final class ViewController: UIViewController {
     private func bindViewModel() {
         let output = viewModel.transform(input: self.fetchButtonTap.eraseToAnyPublisher())
         
-        output.sink { weather in
-            print(weather)
-        }.store(in: &cancelBag)
+        output.weatherTitle
+            .assign(to: \.text!, on: titleLabel)
+            .store(in: &cancelBag)
+        
+        output.weatherDescription
+            .assign(to: \.text!, on: descriptionLabel)
+            .store(in: &cancelBag)
+        
+        output.temperature
+            .assign(to: \.text!, on: temperatureLabel)
+            .store(in: &cancelBag)
     }
 }
 
