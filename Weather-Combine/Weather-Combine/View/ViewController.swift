@@ -16,6 +16,30 @@ final class ViewController: UIViewController {
     
     private var cancelBag = Set<AnyCancellable>()
     
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 24)
+        label.textColor = .black
+        label.text = "날씨"
+        return label
+    }()
+    
+    private let descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 20)
+        label.textColor = .black
+        label.text = "날씨 정보"
+        return label
+    }()
+
+    private let temperatureLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 20)
+        label.textColor = .black
+        label.text = "기온"
+        return label
+    }()
+    
     private let fetchButton: UIButton = {
         let button = UIButton()
         button.setTitle("데이터 가져오기", for: .normal)
@@ -23,7 +47,17 @@ final class ViewController: UIViewController {
         button.backgroundColor = .lightGray
         return button
     }()
-
+    
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [self.titleLabel,
+                                                       self.descriptionLabel,
+                                                       self.temperatureLabel,
+                                                       self.fetchButton])
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        return stackView
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setLayout()
@@ -32,13 +66,14 @@ final class ViewController: UIViewController {
     }
     
     private func setLayout() {
-        [fetchButton].forEach {
+        [stackView].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             self.view.addSubview($0)
         }
+        
         NSLayoutConstraint.activate([
-            fetchButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-            fetchButton.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor)
+            stackView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+            stackView.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor)
         ])
     }
     
