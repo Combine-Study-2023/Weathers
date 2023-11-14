@@ -1,0 +1,11 @@
+//
+//  Config.xcconfig
+//  WeatherCombineExample
+//
+//  Created by ParkJunHyuk on 2023/11/14.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+APIKey = 4bca00f6a0e098c958c18c7bb2e73a0b
