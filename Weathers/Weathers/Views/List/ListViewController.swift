@@ -12,7 +12,7 @@ import SnapKit
 class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -68,6 +68,28 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
+    public let searchTextField = UITextField().then {
+        let placeholderTextColor = UIColor.lightGray
+        $0.borderStyle = .roundedRect
+        $0.placeholder = "도시 또는 공항 검색"
+        $0.textColor = .white
+        
+        let attributes: [NSAttributedString.Key: Any] = [
+            NSAttributedString.Key.foregroundColor: placeholderTextColor
+        ]
+        $0.attributedPlaceholder = NSAttributedString(string: $0.placeholder ?? "", attributes: attributes)
+        $0.backgroundColor = .secondarySystemFill
+        
+        let imageView = UIImageView()
+        imageView.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
+        imageView.image = UIImage(named: "icon-search")
+        $0.leftView = imageView
+        $0.leftViewMode = .always
+        
+        let marginView = UIView()
+        imageView.frame = CGRect(x: 0, y: 0, width: 8, height: 24)
+    }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
         
@@ -76,28 +98,6 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
             $0.font = customFont
             $0.text = "날씨"
             $0.textColor = .white
-        }
-        
-        let searchTextField = UITextField().then {
-            let placeholderTextColor = UIColor.lightGray
-            $0.borderStyle = .roundedRect
-            $0.placeholder = "도시 또는 공항 검색"
-            $0.textColor = .white
-            
-            let attributes: [NSAttributedString.Key: Any] = [
-                NSAttributedString.Key.foregroundColor: placeholderTextColor
-            ]
-            $0.attributedPlaceholder = NSAttributedString(string: $0.placeholder ?? "", attributes: attributes)
-            $0.backgroundColor = .secondarySystemFill
-            
-            let imageView = UIImageView()
-            imageView.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
-            imageView.image = UIImage(named: "icon-search")
-            $0.leftView = imageView
-            $0.leftViewMode = .always
-            
-            let marginView = UIView()
-            imageView.frame = CGRect(x: 0, y: 0, width: 8, height: 24)
         }
         
         headerView.addSubviews(appTitle, searchTextField)
@@ -119,8 +119,9 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 117.0
+        return 132.0
     }
+    
     
     @objc func tapMyLocationView() {
         let detailVC = DetailViewController()
