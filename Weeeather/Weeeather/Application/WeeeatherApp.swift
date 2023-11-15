@@ -12,7 +12,7 @@ struct WeeeatherApp: App {
   var body: some Scene {
     WindowGroup {
       NavigationStack {
-        ContentView()
+        WeatherView()
       }
     }
   }

@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  WeatherView.swift
 //  Weeeather
 //
 //  Created by taekki on 2023/11/14.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct WeatherView: View {
   @StateObject var weatherStore = WeatherStore()
   
   var weathers: some View {
@@ -65,5 +65,5 @@ struct ContentView: View {
 }
 
 #Preview {
-  ContentView()
+  WeatherView()
 }
