@@ -66,7 +66,6 @@
 				BDFBE8E62B03AA74004849BC /* Network */,
 				BDFBE8F52B03D2CD004849BC /* Resources */,
 				BDFBE8F12B03B65D004849BC /* Stores */,
-				BDFBE8F42B03D2B0004849BC /* System */,
 				BDFBE8EB2B03B2A9004849BC /* Workers */,
 			);
 			path = Weeeather;
@@ -111,13 +110,6 @@
 				BDFBE8F22B03B66D004849BC /* WeatherStore.swift */,
 			);
 			path = Stores;
-			sourceTree = "<group>";
-		};
-		BDFBE8F42B03D2B0004849BC /* System */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = System;
 			sourceTree = "<group>";
 		};
 		BDFBE8F52B03D2CD004849BC /* Resources */ = {
